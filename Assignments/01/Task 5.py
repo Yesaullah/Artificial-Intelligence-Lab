@@ -114,41 +114,36 @@ class RomaniaMap:
                 return result, cost
         return None, 0
 
-def main():
-    romania = RomaniaMap()
+romania = RomaniaMap()
     
-    start = input("Enter start city: ")
-    goal = input("Enter destination city: ")
+start = input("Enter start city: ")
+goal = input("Enter destination city: ")
     
-    results = []
+results = []
     
-    # running bfs algo
-    path, cost = romania.bfs(start, goal)
-    if path:
-        results.append(("Breadth First Search", path, cost))
+# running bfs algo
+path, cost = romania.bfs(start, goal)
+if path:
+    results.append(("Breadth First Search", path, cost))
     
-    # running ucs algo
-    path, cost = romania.ucs(start, goal)
-    if path:
-        results.append(("Uniform Cost Search", path, cost))
+# running ucs algo
+path, cost = romania.ucs(start, goal)
+if path:
+    results.append(("Uniform Cost Search", path, cost))
     
-    # running gbfs algo
-    path, cost = romania.gbfs(start, goal)
-    if path:
-        results.append(("Greedy Best First Search", path, cost))
+# running gbfs algo
+path, cost = romania.gbfs(start, goal)
+if path:
+    results.append(("Greedy Best First Search", path, cost))
     
-    # running iddfs algo
-    path, cost = romania.iddfs(start, goal)
-    if path:
-        results.append(("Iterative Deepening DFS", path, cost))
+# running iddfs algo
+path, cost = romania.iddfs(start, goal)
+if path:
+    results.append(("Iterative Deepening DFS", path, cost))
     
-    results.sort(key=lambda x: x[2])
+results.sort(key=lambda x: x[2])
     
-    print("\nResults sorted by path cost:")
-    for algorithm, path, cost in results:
-        print(f"\n{algorithm}:")
-        print(f"Path: {' -> '.join(path)}")
-        print(f"Cost: {cost}")
-
-if __name__ == "__main__":
-    main()
+for algorithm, path, cost in results:
+    print(f"\n{algorithm}:")
+    print(f"Path: {' -> '.join(path)}")
+    print(f"Cost: {cost}")
